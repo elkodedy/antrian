@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>
+		Sistem Antrian
+	</title>
+	<link rel="stylesheet" type="text/css" href="Antrian.css">
+
+</head>
+<body>
+
+	<center>
+		<div class="navBar" onclick="masukFIFO()"><h1>FIFO</h1></div>
+		<div class="navBar" onclick="masukFILO()"><h1>FILO</h1></div>
+	</center>
+	
+
+	<div class="garis"></div><br><br><br>
+	
+	<div class="FIFO">
+		<center>
+			<h1>FIFO Queue System</h1>
+
+			<div class="Antrian Keluar" onclick="keluarFIFO()">exit queues</div>
+			<div class="Antrian Tambah" onclick="tambahFIFO()">add queues</div>
+			<div class="Antrian Reset" onclick="resetFIFO()">reset queues</div>
+			<div class="antrianFIFO"></div>
+			
+		</center>
+	</div>
+	<!-- ------------------------------------------------------------------- -->
+
+	<!-- --------------------------------------------------------------- -->
+	<div class="FILO">
+		<center>
+			<h1>FILO Queue System</h1>
+
+			<div class="Antrian Keluar" onclick="keluarFILO()">exit queues</div>
+			<div class="Antrian Tambah" onclick="tambahFILO()">add queues</div>
+			<div class="Antrian Reset" onclick="resetFILO()">reset queues</div>
+			<div class="antrianFILO"></div>
+			
+		</center>
+	</div>
+	<!-- ----------------------------------------------------------------- -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script type="text/javascript">
+
+		//NAVBAR
+		function masukFIFO(){
+			document.querySelector('.FIFO').style.display = "block";
+			document.querySelector('.FILO').style.display = "none";
+		} 
+		function masukFILO(){
+			document.querySelector('.FIFO').style.display = "none";
+			document.querySelector('.FILO').style.display = "block";
+		} 
+
+		//First In First Out
+		var jumlahFIFO = 0;
+		var indexFIFO = 0;
+		var hapusFIFO = 0;
+		function tambahFIFO() {
+			// body....
+			jumlahFIFO++;
+			document.querySelector('.antrianFIFO').innerHTML += '<div class=\"tambah tambah'+jumlahFIFO+'\">'+jumlahFIFO+'</div>';
+			setTimeout(function(){ $('.tambah'+jumlahFIFO+'').toggleClass('tambah-active'); }, 100);
+			indexFIFO++;
+
+		}
+		function keluarFIFO() {
+			// body....
+			if(indexFIFO>0){
+				indexFIFO--;
+				setTimeout(function(){ $('.tambah'+hapusFIFO+'').toggleClass('tambah-active'); }, 10);
+				setTimeout(function(){ document.getElementsByClassName('tambah')[0].remove(); }, 300);
+				hapusFIFO++;
+				
+			}else{
+				window.alert("Antrian Kosong");
+			}
+		}
+		/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+		//First In Last Out
+		var jumlahFILO = 0;
+		var indexFILO = 0;
+		function tambahFILO() {
+			// body....
+			jumlahFILO++;
+			document.querySelector('.antrianFILO').innerHTML += '<div class=\"tambah tambahFILO tambah'+jumlahFILO+'\">'+jumlahFILO+'</div>';
+			setTimeout(function(){ $('.tambah'+jumlahFILO+'').toggleClass('tambah-active'); }, 100);
+			indexFILO++;
+		}
+		function keluarFILO() {
+			// body....
+			if(indexFILO>0){
+				indexFILO--;
+				setTimeout(function(){ document.getElementsByClassName('tambahFILO')[indexFILO].classList.toggle('tambah-active'); }, 10);
+				// setTimeout(function(){ $('.tambah'+(jumlahFILO-hapusFILO)+'').toggleClass('tambah-active'); }, 10);
+				setTimeout(function(){ document.getElementsByClassName('tambahFILO')[indexFILO].remove(); }, 300);
+			}else{
+				window.alert("Antrian Kosong");
+			}
+		}
+
+
+		//reset
+		function resetFIFO(){
+			document.querySelector('.antrianFIFO').innerHTML = "";
+			indexFIFO = 0;
+			jumlahFIFO = 0;
+			hapusFIFO = 0;
+			window.alert("Antrian di Reset");
+		}
+		function resetFILO(){
+			document.querySelector('.antrianFILO').innerHTML = "";
+			indexFILO = 0;
+			jumlahFILO = 0;
+			window.alert("Antrian di Reset");
+		}
+	</script>
+</body>
+</html>

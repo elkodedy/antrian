@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>
+		Sistem Antrian
+	</title>
+	<link rel="stylesheet" type="text/css" href="Antrian.css">
+</head>
+<body>
+	<h1>FIFO Queue System</h1>
+	<div class="ff ff1">
+		<!-- <center>			 -->
+			<h2>Add Queue</h2>
+			<div class="Antrian Tambah" onclick="tambahFIFO()">add queues</div>
+			<input placeholder="Your Name" class="input"><br>
+			<p>Your Queue is</p>
+			<div class="nextNum">
+				1
+			</div>
+		<!-- </center> -->
+	</div>
+	<div class="ff ff2">
+		<center>
+			<h2>Queues</h2>
+
+			<div class="Antrian Keluar" onclick="keluarFIFO()">exit queue</div>
+			<div class="antrianFIFO">
+				<h3 style="color: #DC4C40;" class="empty1">empty</h3>
+			</div>
+		</center>
+	</div>
+	<div class="ff ff3">
+			<h2>Done Queues</h2>
+			<div class="Antrian Reset" onclick="resetFIFO()">reset queues</div>
+			<div class="exit">
+				<h3 style="color: #FFCD41;text-align: center;" class="empty2">empty</h3>
+			</div>
+
+	</div>
+	<!-- ------------------------------------------------------------------- -->
+
+	<!-- ----------------------------------------------------------------- -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script type="text/javascript">
+
+		//First In First Out
+		var jumlahFIFO = 0; //jumlah antrian
+		var indexFIFO = 0; //antrian aktif
+		var hapusFIFO = 0; //jumlah prnghapusan antrian
+		var name = ''; //nama inputan
+		var arrName = [];
+
+		
+		function tambahFIFO() {
+			// body....
+
+			if (document.querySelector('.input').value == '') { //mengecek input jika kosong
+				window.alert('input a name');
+			}
+			else{
+
+				name = document.querySelector('.input').value;
+				arrName[jumlahFIFO] = name; //mengambil nilai input
+
+				jumlahFIFO++; //menambah jumlah antrian
+			
+				document.querySelector('.antrianFIFO').innerHTML += '<div class=\"tambah tambah'+jumlahFIFO+'\">'+jumlahFIFO+'<p class=\'kotakNames\'>'+name+'</p></div>'; //memasukan kota kotal antrian
+				document.querySelector('.nextNum').innerHTML = (jumlahFIFO+1); //memaukkan 'your queue is'
+				setTimeout(function(){ $('.tambah'+jumlahFIFO+'').toggleClass('tambah-active'); }, 100); //animasi kotak muncul perlahan
+
+				document.querySelector('.input').value = ''; //mengosongkan input
+				document.querySelector('.empty1').innerHTML = ''; //menghilangkan empty
+
+
+			
+				indexFIFO++; //menambah antrian aktif
+
+			}
+		}
+		
+
+		var exitNum = 1;
+		function keluarFIFO() {
+			// body....
+			if(indexFIFO>0){ //mengecek antrian jika kosong
+				// ---------------------------------------------------
+				var exitName = arrName[hapusFIFO];
+				document.querySelector('.exit').innerHTML += ('<p class=\"exitText\">'+ exitNum +'. '+ exitName +'</p>');
+				exitNum++;
+				// ---------------------------------------------------
+
+				indexFIFO--; // mengurangi antrian aktif
+				setTimeout(function(){ $('.tambah'+hapusFIFO+'').toggleClass('tambah-active'); }, 10); //animasi hilangnya kotak antrian perlahan
+				setTimeout(function(){ document.getElementsByClassName('tambah')[0].remove(); }, 300); //menghapus kotak antrian
+
+
+
+				hapusFIFO++; //menambah jumlah penghapusan
+				if(indexFIFO==0)
+					document.querySelector('.empty1').innerHTML = 'empty'; //menghilangkan empty	
+
+				document.querySelector('.empty2').innerHTML = ''; //menghilangkan empty
+			}
+			else{
+				window.alert("Antrian Kosong"); //memunculkan pesan antrian kosong
+			}
+		}
+
+		//reset
+		function resetFIFO(){
+			// document.querySelector('.antrianFIFO').innerHTML = "";
+			// indexFIFO = 0;
+			// jumlahFIFO = 0;
+			// hapusFIFO = 0;
+			window.alert("Antrian di Reset"); //memunculkan pesan antrian di reset
+			location.reload(); //reload halaman
+		}
+
+		// var interval = setInterval(
+		// 	function(){
+		// 		if(document.querySelector('.tambah') == null){
+		// 			document.querySelector('.antrianFIFO').innerHTML = ('<h3 style="color: #FF8C00;" class="empty1">Empty</h3>');
+		// 		}else;
+		// 	},
+		// 	10
+		// );
+	</script>
+</body>
+</html>

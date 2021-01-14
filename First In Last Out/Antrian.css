@@ -1,0 +1,80 @@
+body{
+	font-family: Raleway, Arial, sans-serif;
+	margin: 0px;
+}
+h1{
+	width: 30%;
+	margin-bottom: 1em;
+  border-bottom: 2px solid #eee;
+  	border-bottom: 2px solid #eee;
+	line-height: 1.5;
+}
+h1:hover{
+  border-bottom: 2px solid #FF8C00;
+}
+.tambah{
+	width: 100px;
+	height: 75px;
+	color: #fff;
+	border: 1px solid #fff;
+	margin: 10px;
+	font-size: 35px;
+	display: inline-table;
+	padding-top: 25px;
+	transition: border-color 0.5s ease-out, color 0.2s ease-out; 
+	/*transform: scale(1,2);*/
+}
+.tambah:hover{
+	background:  #FF8C00;
+  color: #fff;
+  border-color:  #FF8C00;
+}
+.tambah-active{
+  color: #FF8C00;
+  border-color:  #FF8C00;
+}
+.Antrian{
+	margin-left:20px;
+	font-family: Raleway, Arial, sans-serif;
+	border-radius: 3px;
+	padding-top: 10px;
+	display: inline-block;
+	width: 130px;
+	height: 30px;
+	transition: border-color 0.5s ease-out, color 0.2s ease-out;
+}
+.Reset{
+	color : #3CB371;
+	border: 1px solid #3CB371;
+
+}
+.Reset:hover {
+  background: #3CB371;
+  color: #fff;
+  border-color: #3CB371;		
+}
+.Tambah{
+	color: #4682B4;
+	border: 1px solid #4682B4;
+
+}
+.Tambah:hover {
+  background: #4682B4;
+  color: #fff;
+  border-color: #4682B4;		
+}
+.Keluar{
+	color : #B22222;
+	border: 1px solid #B22222;
+
+}
+.Keluar:hover {
+  background: #B22222;
+  color: #fff;
+  border-color: #B22222;	
+}
+
+.antrianFILO{
+	min-height: 80px;
+	margin: 10px;
+}

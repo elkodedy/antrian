@@ -1,0 +1,163 @@
+body{
+	font-family: Raleway, Arial, sans-serif;
+	margin: 0px;
+}
+
+/*Header*/
+h1{
+	/*width: 30%;*/
+	margin-bottom: 1em;
+    /*border-bottom: 2px solid #eee;*/
+  	border-bottom: 2px solid #eee;
+	line-height: 1.5;
+	text-align: center;
+}
+h1:hover{
+    border-bottom: 2px solid #4B8BF4;
+}
+
+/*badan*/
+.ff{
+	/*display: inline-table;*/
+	float: left;
+	/*border: 2px solid black;*/
+	margin-left: 3vw;
+	min-height: 100vh;
+}
+.ff1{
+	width: 20vw;
+}
+.ff2, .ff3{
+	width: 34vw;
+}
+
+/*header badan*/
+h2{
+	/*width: 30%;*/
+	margin-bottom: 1em;
+    /*border-bottom: 2px solid #eee;*/
+  	border-bottom: 2px solid #eee;
+	line-height: 1.5;
+	text-align: center;
+}
+h2:hover{
+    border-bottom: 2px solid #4B8BF4;
+}
+
+/*isi 3 badan*/
+.Antrian{
+	cursor: default;
+	/*margin-left:20px;*/
+	font-family: Raleway, Arial, sans-serif;
+	border-radius: 3px;
+	padding-top: 10px;
+	display: inline-block;
+	width: 130px;
+	height: 30px;
+	transition: border-color 0.5s ease-out, color 0.2s ease-out;
+	cursor: pointer;
+}
+
+/*badan 1*/
+.input{
+	/*margin-top: 30vh;*/
+	/*float: left;*/
+  	border: 1px solid #1CA260;
+  	width: 90%;
+  	border-radius: 2px;
+  	height: 30px;
+  	font-size: 15px;
+  	background: transparent;
+	font-family: "comic sans ms";
+	/*color: #fff;*/
+	padding-left: 7px;
+}
+.input:hover{
+	/*background-color: rgba(0,0,0,0.7);*/
+}
+.nextNum{
+	width: 100px;
+	height: 75px;
+	color: #fff;
+	border: 1px solid #fff;
+	margin: 10px 0 0 0;
+	font-size: 35px;
+	padding-top: 25px;
+	text-align: center;
+	background-color: #1CA260;
+}
+
+.Tambah{
+	text-align: center;
+	color: #fff;
+	border: 1px solid #4682B4;
+	margin: 0 0 2vh 4vw;
+	background: #1CA260;
+}
+.Tambah:hover {
+    background: #fff;
+    color: #1CA260;
+    border-color: #1CA260;		
+}
+
+.kotakNames{
+	font-size: 15px;
+}
+
+/*badan 2*/
+.tambah{
+	width: 100px;
+	height: 75px;
+	color: #fff;
+	border: 1px solid #fff;
+	margin: 10px;
+	font-size: 35px;
+	display: inline-table;
+	background-color: #DD5145;
+	padding-top: 25px;
+	transition: border-color 0.5s ease-out, color 0.2s ease-out; 
+	/*transform: scale(1,2);*/
+}
+.tambah:hover{
+	background: #fff;
+    color: #DD5145;
+    border-color:#DD5145;
+}
+.tambah-active{
+    color: #FFF;
+    border-color:#fff;
+}
+.antrianFIFO{
+	min-height: 80px;
+	margin: 10px;
+}
+/*badan 3*/
+.Reset{
+	text-align: center;
+	margin-left: 36%;
+	color : #fff;
+	border: 1px solid #fff;
+	background-color: #FFCD42;
+}
+.Reset:hover {
+    background: #fff;
+    color: #FFCD42;
+    border-color: #FFCD42;		
+}
+
+.Keluar{
+	color : #fff;
+	border: 1px solid #B22222;
+	background-color: #DD5145;
+
+}
+.Keluar:hover {
+    background: #fff;
+    color: #DD5145;
+    border-color: #DD5145;	
+}
+.exitText{
+	color: #FFCD42;
+	font-size: 18px;
+	margin-left: 30%;
+}

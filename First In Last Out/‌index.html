@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>
+		Sistem Antrian
+	</title>
+	<link rel="stylesheet" type="text/css" href="Antrian.css">
+
+</head>
+<body>
+
+	<!-- --------------------------------------------------------------- -->
+	<div class="FILO">
+		<center>
+			<h1>FILO Queue System</h1>
+
+			<div class="Antrian Keluar" onclick="keluarFILO()">exit queues</div>
+			<div class="Antrian Tambah" onclick="tambahFILO()">add queues</div>
+			<div class="Antrian Reset" onclick="resetFILO()">reset queues</div>
+			<div class="antrianFILO"></div>
+			
+		</center>
+	</div>
+	<!-- ----------------------------------------------------------------- -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script type="text/javascript">
+
+
+		//First In Last Out
+		var jumlahFILO = 0;
+		var indexFILO = 0;
+
+		// Tambah Antrian
+		function tambahFILO() {
+			jumlahFILO++;
+			document.querySelector('.antrianFILO').innerHTML += '<div class=\"tambah tambahFILO tambah'+jumlahFILO+'\">'+jumlahFILO+'</div>';
+			setTimeout(function(){ $('.tambah'+jumlahFILO+'').toggleClass('tambah-active'); }, 100);
+			indexFILO++;
+		}
+
+
+		// Keluar Antrian
+		function keluarFILO() {
+			if(indexFILO>0){
+				indexFILO--;
+				setTimeout(function(){ document.getElementsByClassName('tambahFILO')[indexFILO].classList.toggle('tambah-active'); }, 10);
+				setTimeout(function(){ document.getElementsByClassName('tambahFILO')[indexFILO].remove(); }, 300);
+			}else{
+				window.alert("Antrian Kosong");
+			}
+		}
+
+
+		// Reset
+		function resetFILO(){
+			window.alert("Antrian di Reset");
+			location.reload();
+		}
+	</script>
+</body>
+</html>
